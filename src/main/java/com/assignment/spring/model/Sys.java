@@ -1,0 +1,45 @@
+package com.assignment.spring.model;
+
+/**
+ * @author D.Vancea
+ *
+ * I have no ideea what this class is supposed to do or represent..
+ * Could use a java doc at the beginning of the class to explain the purpose of the class
+ */
+
+import java.util.HashMap;
+import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.Data;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+    "type",
+    "id",
+    "message",
+    "country",
+    "sunrise",
+    "sunset"
+})
+@Data
+public class Sys {
+
+    @JsonProperty("type")
+    private Integer type;
+    @JsonProperty("id")
+    private Integer id;
+    @JsonProperty("message")
+    private Double message;
+    @JsonProperty("country")
+    private String country;
+    @JsonProperty("sunrise")
+    private Integer sunrise;
+    @JsonProperty("sunset")
+    private Integer sunset;
+    @JsonIgnore
+    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+}
